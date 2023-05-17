@@ -1,0 +1,21 @@
+{
+    "name": "microit/store-base",
+    "homepage": "https://micro-it.nl/",
+    "autoload": {
+        "psr-4": {
+            "Microit\\StoreBase\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jeroen el Hahaoui",
+            "email": "jeroen@micro-it.nl"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    },
+    "require-dev": {
+        "vimeo/psalm": "^5.11"
+    }
+}

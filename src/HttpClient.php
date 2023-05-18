@@ -14,15 +14,23 @@ use Psr\Http\Message\ResponseInterface;
 class HttpClient {
     private ClientInterface $client;
     private RequestFactoryInterface $requestFactory;
+    protected string $baseUrl;
 
     public function __construct(
-        readonly string $baseUrl,
+        string $baseUrl = null,
         ?ClientInterface $client = null,
         ?RequestFactoryInterface $requestFactory = null
     )
     {
+        $this->baseUrl = $baseUrl ?: '';
         $this->client = $client ?: Psr18ClientDiscovery::find();
         $this->requestFactory = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
+    }
+
+    public function setBaseUrl(string $baseUrl): self
+    {
+        $this->baseUrl = $baseUrl;
+        return $this;
     }
 
     public function createRequest(string $method, string $uri): RequestInterface

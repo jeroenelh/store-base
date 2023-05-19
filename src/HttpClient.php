@@ -1,4 +1,5 @@
 <?php
+
 namespace Microit\StoreBase;
 
 use Http\Discovery\Psr17FactoryDiscovery;
@@ -11,7 +12,8 @@ use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class HttpClient {
+class HttpClient
+{
     private ClientInterface $client;
     private RequestFactoryInterface $requestFactory;
     protected string $baseUrl;
@@ -20,8 +22,7 @@ class HttpClient {
         string $baseUrl = null,
         ?ClientInterface $client = null,
         ?RequestFactoryInterface $requestFactory = null
-    )
-    {
+    ) {
         $this->baseUrl = $baseUrl ?: '';
         $this->client = $client ?: Psr18ClientDiscovery::find();
         $this->requestFactory = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();

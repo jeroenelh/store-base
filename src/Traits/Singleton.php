@@ -2,6 +2,8 @@
 
 namespace Microit\StoreBase\Traits;
 
+use ReflectionClass;
+
 trait Singleton
 {
     private static $instance;
@@ -9,7 +11,7 @@ trait Singleton
     public static function getInstance()
     {
         if (!isset(self::$instance)) {
-            $reflection = new \ReflectionClass(__CLASS__);
+            $reflection = new ReflectionClass(__CLASS__);
             self::$instance = $reflection->newInstanceArgs(func_get_args());
         }
 

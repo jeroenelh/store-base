@@ -3,9 +3,7 @@
 namespace Microit\StoreBase;
 
 use Http\Discovery\Psr17FactoryDiscovery;
-use Http\Discovery\Psr18Client;
 use Http\Discovery\Psr18ClientDiscovery;
-use Nyholm\Psr7\Stream;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;

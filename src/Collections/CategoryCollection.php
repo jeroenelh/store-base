@@ -3,7 +3,6 @@
 namespace Microit\StoreBase\Collections;
 
 use Microit\StoreBase\Models\Category;
-use Microit\StoreBase\Models\Product;
 
 final class CategoryCollection extends Collection
 {

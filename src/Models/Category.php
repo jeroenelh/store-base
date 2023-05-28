@@ -5,7 +5,7 @@ namespace Microit\StoreBase\Models;
 class Category
 {
     /** @var Category[] */
-    protected array $categories = [];
+    protected array $subCategories = [];
 
     public function __construct(
         public readonly int|string|null $id = null,
@@ -41,23 +41,23 @@ class Category
         return $this->image;
     }
 
-    public function addCategory(Category $category): Category
+    public function addSubCategory(Category $category): Category
     {
-        if (!$this->hasCategory($category)) {
-            $this->categories[] = $category;
+        if (!$this->hasSubCategory($category)) {
+            $this->subCategories[] = $category;
         }
 
         return $this;
     }
 
-    public function hasCategory(Category $category): bool
+    public function hasSubCategory(Category $category): bool
     {
-        return in_array($category, $this->categories);
+        return in_array($category, $this->subCategories);
     }
 
-    public function getCategories(): array
+    public function getSubCategories(): array
     {
-        return $this->categories;
+        return $this->subCategories;
     }
 
 }

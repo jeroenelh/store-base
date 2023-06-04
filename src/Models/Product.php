@@ -7,9 +7,9 @@ use Microit\StoreBase\Collections\PriceCollection;
 
 class Product
 {
-    protected ?ImageCollection $imageCollection;
+    protected ImageCollection $imageCollection;
 
-    protected ?PriceCollection $priceCollection;
+    protected PriceCollection $priceCollection;
 
     public function __construct(
         public readonly int $id,

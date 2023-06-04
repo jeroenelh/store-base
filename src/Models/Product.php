@@ -17,8 +17,8 @@ class Product
         public readonly ?string $brand,
         public readonly ?string $description = ''
     ) {
-        $this->imageCollection = null;
-        $this->priceCollection = null;
+        $this->imageCollection = new ImageCollection();
+        $this->priceCollection = new PriceCollection();
     }
 
     public function setImageCollection(ImageCollection $imageCollection): void
@@ -31,6 +31,11 @@ class Product
         return $this->imageCollection;
     }
 
+    public function addImage(Image $image): void
+    {
+        $this->imageCollection->add($image);
+    }
+
     public function setPriceCollection(PriceCollection $priceCollection): void
     {
         $this->priceCollection = $priceCollection;
@@ -39,5 +44,10 @@ class Product
     public function getPriceCollection(): ?PriceCollection
     {
         return $this->priceCollection;
+    }
+
+    public function addPrice(Price $price): void
+    {
+        $this->priceCollection->add($price);
     }
 }

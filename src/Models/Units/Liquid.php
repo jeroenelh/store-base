@@ -15,7 +15,7 @@ class Liquid extends Unit
     public const MILILITER = 1000;
 
     /** @var array|array[] */
-    public $steps = [
+    private array $steps = [
         self::LITER => ['l', 'lt', 'liter'],
         self::DECILITER => ['dl', 'deciliter'],
         self::CENTILITER => ['cl', 'centiliter'],

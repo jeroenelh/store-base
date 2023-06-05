@@ -18,7 +18,7 @@ class Price
         $this->unit = Unit::getValidateUnit($this->rawUnitText);
         $normalizedSize = $this->unit->getNormalizedSize();
         if (! is_null($normalizedSize)) {
-            $this->normalizedPrice = $this->rawPrice * $normalizedSize;
+            $this->normalizedPrice = $this->rawPrice / $normalizedSize;
         }
     }
 }

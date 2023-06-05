@@ -3,6 +3,7 @@
 namespace Microit\StoreBase\Models;
 
 use Microit\StoreBase\Models\Units\Liquid;
+use Microit\StoreBase\Models\Units\Pieces;
 use Microit\StoreBase\Models\Units\Weight;
 
 class Unit
@@ -14,6 +15,7 @@ class Unit
     public const UNIT_CLASSES = [
         Weight::class,
         Liquid::class,
+        Pieces::class,
     ];
 
     public function __construct(public readonly string $rawUnitText)

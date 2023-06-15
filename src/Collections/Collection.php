@@ -12,7 +12,7 @@ abstract class Collection implements Countable, Iterator
 {
     protected array $values = [];
 
-    protected int $position = 0;
+    protected string $position = 0;
 
     public function current(): mixed
     {

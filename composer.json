@@ -46,7 +46,9 @@
                 "./vendor/bin/php-cs-fixer fix --config=php-cs-fixer.php"
             ],
             "pre-push": [
-                "./vendor/bin/php-cs-fixer fix --config=php-cs-fixer.php --dry-run --stop-on-violation"
+                "./vendor/bin/php-cs-fixer fix --config=php-cs-fixer.php --dry-run --stop-on-violation",
+                "./vendor/bin/psalm --no-cache",
+                "./vendor/bin/phpmd ./src text ./phpmd.xml"
             ],
             "post-merge": "composer update"
         }

@@ -3,7 +3,9 @@
 namespace Microit\StoreBase\Models;
 
 use Microit\StoreBase\Enums\Currency;
+use ReflectionProperty;
 
+/** @psalm-suppress PropertyNotSetInConstructor */
 class Price
 {
     protected Unit $unit;
@@ -21,10 +23,13 @@ class Price
     ) {
         $this->unit = Unit::getValidateUnit($this->rawUnitText);
         $normalizedSize = $this->unit->getNormalizedSize();
+
         if (! is_null($normalizedSize)) {
             $this->normalizedPrice = $this->rawPrice / $normalizedSize;
         }
 
-        $this->pricePerProduct = $this->rawPrice / $this->amountOfProducts;
+        if (! (new ReflectionProperty(self::class, 'pricePerProduct'))->isInitialized($this)) {
+            $this->pricePerProduct = $this->rawPrice / $this->amountOfProducts;
+        }
     }
 }

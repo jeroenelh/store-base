@@ -47,8 +47,8 @@
             ],
             "pre-push": [
                 "./vendor/bin/php-cs-fixer fix --config=php-cs-fixer.php --dry-run --stop-on-violation",
-                "./vendor/bin/psalm --no-cache",
-                "./vendor/bin/phpmd ./src text ./phpmd.xml"
+                "composer run psalm",
+                "composer run phpmd"
             ],
             "post-merge": "composer update"
         }
